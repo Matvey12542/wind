@@ -6,11 +6,11 @@
 
     <!--
     <parameters>
-        <parameter key="core.example.class">Wind\CoreBundle\Example</parameter>
+        <parameter key="wind_model.example.class">Wind\ModelBundle\Example</parameter>
     </parameters>
 
     <services>
-        <service id="core.example" class="%core.example.class%">
+        <service id="wind_model.example" class="%wind_model.example.class%">
             <argument type="service" id="service_id" />
             <argument>plain_value</argument>
             <argument>%parameter_name%</argument>

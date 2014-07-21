@@ -1,3 +1,8 @@
+wind_model:
+    resource: "@WindModelBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 core:
     resource: "@CoreBundle/Controller/"
     type:     annotation
