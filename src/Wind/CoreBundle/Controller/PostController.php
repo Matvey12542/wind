@@ -6,6 +6,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Wind\ModelBundle\Repository;
+use Symfony\Component\HttpFoundation\Response;
+use Wind\CoreBundle\MyMailer;
+
 /**
  * Class PostController
  */
@@ -21,9 +24,21 @@ class PostController extends Controller
         $latestPosts = $this->getDoctrine()->getRepository('WindModelBundle:Post')->findLatests(5);
 
         return array(
-            'posts'       => $posts,
+            'posts' => $posts,
             'latestPosts' => $latestPosts,
         );
+    }
+
+    /**
+     * @Route("/mail")
+     * @Template()
+     */
+    public function mailAction()
+    {
+        $mailer = $this->get('MyMailer');
+        $response = $mailer->send('Matvey@r.ru');
+
+        return new Response($response);
     }
 
 }
