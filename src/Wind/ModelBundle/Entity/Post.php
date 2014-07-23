@@ -4,6 +4,7 @@ namespace Wind\ModelBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Gedmo\Mapping\Annotation as Gedmo;
 /**
  * Post
  *
@@ -29,6 +30,13 @@ class Post extends Timestampable
      */
     private $title;
 
+    /**
+     * @var string
+     *
+     * @Gedmo\Slug(fields={"title"}, unique=false)
+     * @ORM\Column(length=255)
+     */
+    private $slug;
     /**
      * @var string
      *
@@ -79,6 +87,29 @@ class Post extends Timestampable
     }
 
     /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Post
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
      * Set body
      *
      * @param string $body
@@ -124,4 +155,5 @@ class Post extends Timestampable
     {
         return $this->author;
     }
+
 }

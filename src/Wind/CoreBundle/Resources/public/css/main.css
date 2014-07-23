@@ -2,3 +2,28 @@ html{
     position: relative;
     min-height: 100%
 }
+aside
+{
+    float: right;
+    width: 350px;
+}
+section
+{
+    width: 1254px;
+}
+
+footer{
+    position: absolute;
+    bottom: 24px;
+}
+article{
+    padding: 10px;
+    border-bottom: 1px dashed black;
+}
+article header h2 a{
+    color: #252525;
+    font: 24px 'Source Sans Pro', Verdana;
+    font-weight: 900;
+    /*font-size: 17px;*/
+    text-decoration: none;
+}
