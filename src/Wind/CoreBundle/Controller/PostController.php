@@ -41,4 +41,24 @@ class PostController extends Controller
         return new Response($response);
     }
 
+    /**
+     * @Route("/{slug}")
+     * @Template()
+     */
+    public function showAction($slug) {
+        $post = $this->getDoctrine()->getRepository('WindModelBundle:Post')->findOneBy(
+            array(
+                'slug' => $slug
+            )
+        );
+
+        if (null === $post) {
+            throw $this->createNotFoundException('Post was not found');
+        }
+
+        return array(
+            'post' => $post
+        );
+    }
+
 }

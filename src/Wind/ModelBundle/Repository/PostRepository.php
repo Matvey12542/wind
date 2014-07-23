@@ -24,6 +24,16 @@ class PostRepository extends EntityRepository {
         return $qb->getQuery()->getResult();
     }
 
+    /**
+     * Find the first post
+     */
+    public function findFirst()
+    {
+        $qb = $this->getQueryBuilder()
+            ->orderBy('p.id', 'asc')
+            ->setMaxResults(1);
+        return $qb->getQuery()->getSingleResult();
+    }
     private function getQueryBuilder()
     {
         $em = $this->getEntityManager();
@@ -32,4 +42,4 @@ class PostRepository extends EntityRepository {
             ->createQueryBuilder('p');
         return $qb;
     }
-} 
+}
