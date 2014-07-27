@@ -86,28 +86,7 @@ class Author extends Timestampable
         return $this->name;
     }
 
-    /**
-     * Set slug
-     *
-     * @param string $slug
-     * @return Author
-     */
-    public function setSlug($slug)
-    {
-        $this->slug = $slug;
 
-        return $this;
-    }
-
-    /**
-     * Get slug
-     *
-     * @return string
-     */
-    public function getSlug()
-    {
-        return $this->slug;
-    }
     
     /**
      * Add posts
@@ -133,7 +112,7 @@ class Author extends Timestampable
     }
 
     /**
-     * Get postsnent\DomCrawler\Crawler co
+     * Get posts
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
@@ -141,6 +120,4 @@ class Author extends Timestampable
     {
         return $this->posts;
     }
-
-
 }
