@@ -3,7 +3,7 @@ home: Home
 by: by
 read.more: Read more
 author: Author
-
+on: On
 
 post:
   plural: Post
@@ -11,6 +11,10 @@ post:
   on: Posted on
   by: Posts by
   by.author: Posts by %name%
+  comments: '{0} No comments|{1} %count% comment|]1,Inf] %count% comments'
 
 author:
 empty.posts: This author did not write any post yet.
+
+comment.body: Body
+comment.plural: Comments
