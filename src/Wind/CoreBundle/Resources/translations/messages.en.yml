@@ -4,6 +4,8 @@ by: by
 read.more: Read more
 author: Author
 on: On
+name: Name
+send: Send
 
 post:
   plural: Post
@@ -17,4 +19,6 @@ author:
 empty.posts: This author did not write any post yet.
 
 comment.body: Body
+comment.singular: Comment
 comment.plural: Comments
+comment.write: Write

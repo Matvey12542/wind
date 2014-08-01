@@ -3,8 +3,11 @@
 namespace Wind\CoreBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\HttpFoundation\Request;
+use Wind\ModelBundle\Form\CommentType;
 use Wind\ModelBundle\Repository;
 use Symfony\Component\HttpFoundation\Response;
 use Wind\CoreBundle\MyMailer;
@@ -56,9 +59,24 @@ class PostController extends Controller
             throw $this->createNotFoundException('Post was not found');
         }
 
+        $form = $this->createForm(new CommentType());
+
         return array(
-            'post' => $post
+            'post' => $post,
+            'form' => $form->createView(),
         );
+    }
+
+    /**
+     * @param Request $request
+     * @param $slug
+     *
+     * @Route("/{slug/create-comment}")
+     * @Method("POST")
+     * @Template("Corebundle:Post:show.html.twig")
+     */
+    public function createCommentAction(Request $request, $slug){
+        return array();
     }
 
 }
