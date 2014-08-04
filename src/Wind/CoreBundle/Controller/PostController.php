@@ -7,6 +7,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
+use Wind\ModelBundle\Entity\Comment;
 use Wind\ModelBundle\Form\CommentType;
 use Wind\ModelBundle\Repository;
 use Symfony\Component\HttpFoundation\Response;
@@ -71,12 +72,40 @@ class PostController extends Controller
      * @param Request $request
      * @param $slug
      *
+     * @return array
+     *
      * @Route("/{slug/create-comment}")
      * @Method("POST")
      * @Template("Corebundle:Post:show.html.twig")
      */
     public function createCommentAction(Request $request, $slug){
-        return array();
+        $post = $this->getDoctrine()->getRepository('WindModelBundle:Post')->findOneBy(
+            array(
+                'slug' => $slug
+            )
+        );
+        if (null === $post) {
+            throw $this->createNotFoundException('post was not found');
+        }
+
+        $comment = new Comment();
+        $comment->setPost($post);
+
+        $form =$this->createForm(new CommentType(), $comment);
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $this->getDoctrine()->getManager()->persist($comment);
+            $this->getDoctrine()->getManager()->flush();
+
+            $this->get('session')->getFlushBag()->flush();
+
+            return $this->redirect($this->generateUrl('wind_core_post_show', array('slug' => $post->setSlug())));
+        }
+        return array(
+            'post' => $post,
+            'form' => $form->createView(),
+        );
     }
 
 }

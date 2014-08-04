@@ -47,8 +47,8 @@ class PostControllerTest extends WebTestCase
         $buttonCrawlerNode = $crawler->selectButton('Send');
 
         $form = $buttonCrawlerNode->form(array(
-            'blog_modelbundle_comment[authorName]' => 'A humble commenter',
-            'blog_modelbundle_comment[body]' => "Hi! I'm commenting about Symfony2!"
+            'wind_modelbundle_comment[authorName]' => 'A humble commenter',
+            'wind_modelbundle_comment[body]' => "Hi! I'm commenting about Symfony2!"
         ));
 
         $client->submit($form);
