@@ -74,7 +74,7 @@ class PostController extends Controller
      *
      * @return array
      *
-     * @Route("/{slug/create-comment}")
+     * @Route("/{slug}/create-comment")
      * @Method("POST")
      * @Template("Corebundle:Post:show.html.twig")
      */
@@ -98,9 +98,9 @@ class PostController extends Controller
             $this->getDoctrine()->getManager()->persist($comment);
             $this->getDoctrine()->getManager()->flush();
 
-            $this->get('session')->getFlushBag()->flush();
+            $this->get('session')->getFlashBag()->add('success', 'You comment submitted successfully');
 
-            return $this->redirect($this->generateUrl('wind_core_post_show', array('slug' => $post->setSlug())));
+            return $this->redirect($this->generateUrl('wind_core_post_show', array('slug' => $post->getSlug())));
         }
         return array(
             'post' => $post,

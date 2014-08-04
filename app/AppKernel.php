@@ -41,6 +41,7 @@ class AppKernel extends Kernel
           new Sonata\AdminBundle\SonataAdminBundle(),
             new Wind\ModelBundle\WindModelBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            new Wind\AdminBundle\AdminBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
