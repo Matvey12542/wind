@@ -29,7 +29,7 @@ class SecurityController extends Controller {
         }
 
         return $this->render(
-            'AdminBundleSecurity:login.html.twig',
+            'AdminBundle:Security:login.html.twig',
             array(
                 'last_username' => $session->get(SecurityContext::LAST_USERNAME),
                 'error'         => $error
