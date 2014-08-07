@@ -8,6 +8,7 @@ namespace Wind\AdminBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\BrowserKit\Response;
 use Symfony\Component\Security\Core\SecurityContext;
 
 class SecurityController extends Controller {
@@ -43,6 +44,13 @@ class SecurityController extends Controller {
      * @Route("login_check")
      */
     public function loginCheckAction() {
+    }
 
+    /**
+     * Logout
+     *
+     * @Route("logout")
+     */
+    public function logoutAction() {
     }
 } 

@@ -1,8 +1,14 @@
 parameters:
   my_mailer.class:      Wind\CoreBundle\MyMailer
   my_mailer.transport:  sendmail
+  author_manager.class: Wind\CoreBundle\Services\AuthorManager
 
 services:
     my_mailer:
         class:        %my_mailer.class%
         arguments:    [%my_mailer.transport%]
+
+    author_manager:
+      class: %author_manager.class%
+      arguments:
+        - @doctrine.orm.entity_manager
