@@ -6,10 +6,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
+/**
+ * Class AuthorController
+ * @package Wind\CoreBundle\Controller
+ * @Route("{_locale}/author", requirements={"_locale"="en|ua"}, defaults={"_locale"="en"})
+ */
 class AuthorController extends Controller
 {
     /**
-     * @Route("/author/{slug}")
+     * @Route("/{slug}")
      * @Template()
      */
     public function showAction($slug)

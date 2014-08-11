@@ -15,6 +15,7 @@ use Wind\CoreBundle\MyMailer;
 
 /**
  * Class PostController
+ * @Route("{_locale}", requirements={"_locale"="en|ua"}, defaults={"_locale"="en"})
  */
 class PostController extends Controller
 {
