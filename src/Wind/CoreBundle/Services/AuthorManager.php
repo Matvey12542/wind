@@ -23,7 +23,7 @@ class AuthorManager {
     public function findBySlug($slug){
         $author = $this->em->getRepository('WindModelBundle:Author')->findOneBy(
             array(
-                slug => $slug
+                'slug' => $slug
             )
         );
 
@@ -34,6 +34,10 @@ class AuthorManager {
         return $author;
     }
 
+    /**
+     * @param Author $author
+     * @return array
+     */
     public function findPosts(Author $author){
         $posts = $this->em->getRepository('WindModelBundle:Post')->findBy(
             array(

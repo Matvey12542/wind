@@ -24,8 +24,8 @@ class PostController extends Controller
      */
     public function indexAction()
     {
-        $posts = $this->getDoctrine()->getRepository('WindModelBundle:Post')->findAll();
-        $latestPosts = $this->getDoctrine()->getRepository('WindModelBundle:Post')->findLatests(5);
+        $posts = $this->getPostManager()->findAll();
+        $latestPosts = $this->getPostManager()->findLatest(5);
 
         return array(
             'posts' => $posts,
@@ -50,15 +50,7 @@ class PostController extends Controller
      * @Template()
      */
     public function showAction($slug) {
-        $post = $this->getDoctrine()->getRepository('WindModelBundle:Post')->findOneBy(
-            array(
-                'slug' => $slug
-            )
-        );
-
-        if (null === $post) {
-            throw $this->createNotFoundException('Post was not found');
-        }
+        $post = $this->getPostManager()->findBySlug($slug);
 
         $form = $this->createForm(new CommentType());
 
@@ -79,25 +71,12 @@ class PostController extends Controller
      * @Template("Corebundle:Post:show.html.twig")
      */
     public function createCommentAction(Request $request, $slug){
-        $post = $this->getDoctrine()->getRepository('WindModelBundle:Post')->findOneBy(
-            array(
-                'slug' => $slug
-            )
-        );
-        if (null === $post) {
-            throw $this->createNotFoundException('post was not found');
-        }
+        $post = $this->getPostManager()->findBySlug($slug);
 
-        $comment = new Comment();
-        $comment->setPost($post);
 
-        $form =$this->createForm(new CommentType(), $comment);
-        $form->handleRequest($request);
+        $form =$this->getPostManager()->createComment($post, $request);
 
-        if ($form->isValid()) {
-            $this->getDoctrine()->getManager()->persist($comment);
-            $this->getDoctrine()->getManager()->flush();
-
+        if ($form === true) {
             $this->get('session')->getFlashBag()->add('success', 'You comment submitted successfully');
 
             return $this->redirect($this->generateUrl('wind_core_post_show', array('slug' => $post->getSlug())));
@@ -106,6 +85,13 @@ class PostController extends Controller
             'post' => $post,
             'form' => $form->createView(),
         );
+    }
+
+    /**
+     * @return object
+     */
+    private function getPostManager(){
+        return $this->get('postManager');
     }
 
 }

@@ -14,21 +14,8 @@ class AuthorController extends Controller
      */
     public function showAction($slug)
     {
-        $author = $this->getDoctrine()->getRepository('WindModelBundle:Author')->findOneBy(
-            array(
-                'slug' => $slug
-            )
-        );
-
-        if (null === $author) {
-            throw $this->createNotFoundException('Author was not found');
-        }
-
-        $posts = $this->getDoctrine()->getRepository('WindModelBundle:Post')->findBy(
-            array(
-                'author' => $author
-            )
-        );
+        $author = $this->getAuthorManager()->findBySlug($slug);
+        $posts = $this->getAuthorManager()->findPosts($author);
 
         return array(
             'author' => $author,
@@ -36,4 +23,10 @@ class AuthorController extends Controller
         );
     }
 
+    /**
+     * @return object
+     */
+    private function getAuthorManager(){
+        return $this->get('authorManager');
+    }
 }

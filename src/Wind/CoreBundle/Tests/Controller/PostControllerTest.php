@@ -60,7 +60,7 @@ class PostControllerTest extends WebTestCase
         $crawler = $client->followRedirect();
         $this->assertCount(
             1,
-            $crawler-filter('html:contains("Your comment was submittes successfully")'),
+            $crawler->filter('html:contains("Your comment was submittes successfully")'),
             'There was not any confirmation message'
         );
     }
