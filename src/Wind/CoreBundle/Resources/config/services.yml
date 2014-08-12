@@ -1,8 +1,9 @@
 parameters:
-  my_mailer.class:      Wind\CoreBundle\MyMailer
-  my_mailer.transport:  sendmail
-  author_manager.class: Wind\CoreBundle\Services\AuthorManager
-  post_manager.class:   Wind\CoreBundle\Services\PostManager
+  my_mailer.class:          Wind\CoreBundle\MyMailer
+  my_mailer.transport:      sendmail
+  author_manager.class:     Wind\CoreBundle\Services\AuthorManager
+  post_manager.class:       Wind\CoreBundle\Services\PostManager
+  generator_manager.class:  Wind\CoreBundle\Services\GeneratorManager
 
 services:
     my_mailer:
@@ -19,3 +20,9 @@ services:
           arguments:
             - @doctrine.orm.entity_manager
             - @form.factory
+
+    generator_manager:
+              class: %generator_manager.class%
+              arguments:
+                - @doctrine.orm.entity_manager
+                - @form.factory

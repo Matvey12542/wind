@@ -1,0 +1,13 @@
+<article>
+    <header>
+        <h2><a href="#">{{ generator.title }}</a></h2>
+        <p class="price">{{ generator.price }} $ </p>
+        <p>
+            {{ 'generator.on' | trans }} <time datetime="{{ generator.createdAt | date('c') }}">{{ generator.createdAt | date }}</time>
+            {{ 'by' | trans }} <a href="{{ path('wind_core_author_show', {slug: generator.author.slug}) }}">{{ generator.author.name }}</a>
+
+        </p>
+    </header>
+
+    <p>{{ generator.body | truncate(400) }} <a href="#">{{ 'read.more' | trans }}</a> </p>
+</article>
