@@ -5,10 +5,12 @@
 {% endblock %}
 
 {% block body %}
-<header>
+<header id="header">
     <p>Symfony 2 blog</p>
     <nav>
         <li><a href="{{ path('wind_core_post_index') }}">{{ 'home' | trans }}</a> </li>
+        <li><a href="{{ path('wind_core_post_index') }}">{{ 'nav' | trans }}</a> </li>
+        <li><a href="{{ path('wind_core_post_index') }}">{{ 'buuu' | trans }}</a> </li>
     </nav>
 </header>
 

@@ -27,3 +27,6 @@ article header h2 a{
     /*font-size: 17px;*/
     text-decoration: none;
 }
+#header{
+    border-bottom: 1px solid black;
+}

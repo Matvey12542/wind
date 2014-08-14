@@ -1,0 +1,30 @@
+{% extends "CoreBundle::layout.html.twig" %}
+{% block title %}{{ generator.title }}{% endblock %}
+
+{% block sidebar %}
+    <aside>
+        <h3>{{ 'author' | trans }}</h3>
+
+        <p>
+            <a href="{{ path('wind_core_author_show', {slug: generator.author.slug}) }}" title="{{ 'generator.by.author' | trans({'%name%':generator.author.name }) }}">
+                {{ generator.author.name }}
+            </a>
+        </p>
+    </aside>
+{% endblock %}
+
+{% block section %}
+    <article class="generator">
+        <header>
+            <h1>{{ generator.title }}</h1>
+            <p>
+                {{ 'generator.on' | trans }} <time datetime="{{ generator.createdAt | date('c') }}">{{ generator.createdAt | date }}</time>
+            </p>
+        </header>
+
+        <p>{{ generator.body | nl2br }}</p>
+    </article>
+
+
+
+{% endblock %}

@@ -1,4 +1,4 @@
-home: Home
+home: Homeen
 
 by: by
 read.more: Read more
@@ -22,3 +22,6 @@ comment.body: Body
 comment.singular: Comment
 comment.plural: Comments
 comment.write: Write
+
+generator:
+  on: Posted on

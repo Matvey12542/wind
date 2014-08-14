@@ -15,7 +15,7 @@ use Wind\ModelBundle\Entity\Generator;
 class GeneratorController extends Controller
 {
     /**
-     * @Route("/main")
+     * @Route("/")
      * @Template()
      */
     public function indexAction()
@@ -23,6 +23,18 @@ class GeneratorController extends Controller
         $generators = $this->getGeneratorManager()->findAll();
         return array(
             'generators' =>  $generators
+        );
+    }
+
+    /**
+     * @Route("/{slug}")
+     * @Template()
+     */
+    public function showAction($slug) {
+        $generator = $this->getGeneratorManager()->findBySlug($slug);
+
+        return array(
+            'generator' => $generator,
         );
     }
 
@@ -38,6 +50,10 @@ class GeneratorController extends Controller
             ->add('file')
             ->add('body')
             ->add('performance')
+            ->add('initial_speed')
+            ->add('rated_speed')
+            ->add('weight')
+            ->add('price')
             ->add('author')
             ->getForm();
 
@@ -50,7 +66,7 @@ class GeneratorController extends Controller
             $em->persist($generator);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('/'));
+            return $this->redirect($this->generateUrl('wind_core_generator_upload'));
         }
 
         return array('form' => $form->createView());

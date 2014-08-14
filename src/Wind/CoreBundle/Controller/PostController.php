@@ -20,7 +20,7 @@ use Wind\CoreBundle\MyMailer;
 class PostController extends Controller
 {
     /**
-     * @Route("/")
+     * @Route("/post")
      * @Template()
      */
     public function indexAction()

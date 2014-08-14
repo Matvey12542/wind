@@ -28,6 +28,14 @@ class Generator extends Timestampable
     /**
      * @var string
      *
+     * @Gedmo\Slug(fields={"title"}, unique=false)
+     * @ORM\Column(length=255)
+     */
+    private $slug;
+    
+    /**
+     * @var string
+     *
      * @ORM\Column(name="title", type="string", length=255)
      */
     private $title;
@@ -367,5 +375,28 @@ class Generator extends Timestampable
     public function getPath()
     {
         return $this->path;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Generator
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+    
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string 
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

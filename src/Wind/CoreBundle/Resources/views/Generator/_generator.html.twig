@@ -5,9 +5,11 @@
         <p>
             {{ 'generator.on' | trans }} <time datetime="{{ generator.createdAt | date('c') }}">{{ generator.createdAt | date }}</time>
             {{ 'by' | trans }} <a href="{{ path('wind_core_author_show', {slug: generator.author.slug}) }}">{{ generator.author.name }}</a>
-
+            {% if generator.path %}
+            <img src="{{ asset(generator.getWebPath) }}" />
+            {% endif %}
         </p>
     </header>
 
-    <p>{{ generator.body | truncate(400) }} <a href="#">{{ 'read.more' | trans }}</a> </p>
+    <p>{{ generator.body | truncate(400) }} <a href="{{ path('wind_core_post_show', {slug: generator.slug}) }}">{{ 'read.more' | trans }}">{{ 'read.more' | trans }}">{{ 'read.more' | trans }}</a> </p>
 </article>

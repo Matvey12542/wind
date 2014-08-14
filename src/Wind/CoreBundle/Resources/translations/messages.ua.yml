@@ -8,3 +8,6 @@ post:
   plural: Статті
   latests: Останні
   on: Дата
+
+generator:
+  on: Опублікований
