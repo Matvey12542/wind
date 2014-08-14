@@ -1,0 +1,17 @@
+{% extends "CoreBundle::layout.html.twig" %}
+{% block title %}File upload{% endblock %}
+
+{% block section %}
+    {#{% if error %}#}
+        {#<div>{{ error.message }}</div>#}
+    {#{% endif %}#}
+    <form action="{{ path('wind_core_generator_upload') }}" method="post" {{ form_enctype(form) }}>
+        {#<label for="file">File:</label>#}
+        {#<input type="text" id="file" name="_username"  value="{{ last_username }}">#}
+
+        {#<label for="password">password:</label>
+        <input type="password" id="password" name="_password" value="{{ last_username }}">#}
+        {{ form_widget(form) }}
+        <button type="submit">submit</button>
+    </form>
+{% endblock %}
