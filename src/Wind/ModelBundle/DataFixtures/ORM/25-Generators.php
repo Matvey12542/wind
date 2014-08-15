@@ -32,8 +32,9 @@ class Generators extends AbstractFixture implements OrderedFixtureInterface {
     function load(ObjectManager $manager)
     {
         $g1 = new Generator();
-        $g1->setTitle('Ветрогенератор EuroWind 300M');
-        $g1->setBody('Ветрогенератор EuroWind 300M рассчитан на сильные ветра и может быть установлен, к примеру, на яхту, телекоммуникационные вышки и прочие объекты.');
+        $g1->setTitle('Lorem');
+        $g1->setPath($g1->getAbsolutePath().'/63b16-smile1.jpg');
+        $g1->setBody('Lorem 300M рассчитан на сильные ветра и может быть установлен, к примеру, на яхту, телекоммуникационные вышки и прочие объекты.');
         $g1->setPerformance('0-400');
         $g1->setInitialSpeed('3');
         $g1->setRatedSpeed('30');
@@ -43,6 +44,8 @@ class Generators extends AbstractFixture implements OrderedFixtureInterface {
 
         $g2 = new Generator();
         $g2->setTitle('Test');
+        $g2->setPath($g1->getWebPath().'/1404307772_file-roller.png');
+
         $g2->setBody('TEst test tste сильные ветра и может быть установлен, к примеру, на яхту, телекоммуникационные вышки и прочие объекты.');
         $g2->setPerformance('0-300');
         $g2->setInitialSpeed('1');
@@ -53,6 +56,8 @@ class Generators extends AbstractFixture implements OrderedFixtureInterface {
 
         $g3 = new Generator();
         $g3->setTitle('Test test ');
+        $g3->setPath($g1->getWebPath().'/drua_logo.png');
+
         $g3->setBody('buuuuu TEst test tste сильные ветра и может быть установлен, к примеру, на яхту, телекоммуникационные вышки и прочие объекты.');
         $g3->setPerformance('0-500');
         $g3->setInitialSpeed('6');

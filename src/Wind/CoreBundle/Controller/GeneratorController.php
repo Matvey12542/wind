@@ -27,7 +27,7 @@ class GeneratorController extends Controller
     }
 
     /**
-     * @Route("/{slug}")
+     * @Route("/generator/{slug}")
      * @Template()
      */
     public function showAction($slug) {
@@ -36,6 +36,12 @@ class GeneratorController extends Controller
         return array(
             'generator' => $generator,
         );
+    }
+
+
+    public function sliderAction() {
+
+
     }
 
     /**

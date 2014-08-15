@@ -25,6 +25,25 @@ class GeneratorManager {
         $this->em = $em;
     }
 
+    /**
+     * @param $slug
+     * @return object
+     * @throws NotFoundException
+     */
+    public function findBySlug($slug) {
+        $post = $this->em->getRepository('WindModelBundle:Generator')->findOneBy(
+            array(
+                'slug' => $slug
+            )
+        );
+
+        if (null === $post) {
+            throw new NotFoundException('Post was not found');
+        }
+
+        return $post;
+    }
+
     public function findAll() {
         $generators = $this->em->getRepository('WindModelBundle:Generator')->findAll();
         return $generators;

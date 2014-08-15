@@ -15,6 +15,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Wind\ModelBundle\Entity\Comment;
 use Wind\ModelBundle\Entity\Post;
 use Wind\ModelBundle\Form\CommentType;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class PostManager {
     private $em;
