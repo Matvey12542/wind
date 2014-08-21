@@ -1,5 +1,10 @@
 {% extends "CoreBundle::layout.html.twig" %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/core/js/bxslider/jquery.bxslider.css') }}">
+{% endblock %}
+
 {% block title %}{{ 'generator.plural' | trans }}{% endblock %}
 {% block sidebar %}
     <aside>
@@ -13,7 +18,21 @@
 
 {% block section %}
 
+    <ul class="bxslider">
+        {% for slide in slides %}
+                {{ include('CoreBundle:Slider:_slide.html.twig', {slide: slide}) }}
+        {% endfor %}
+    </ul>
+
     {% for generator in generators %}
         {{ include('CoreBundle:Generator:_generator.html.twig', {generator: generator}) }}
     {% endfor %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/core/js/jquery-2.1.1.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('bundles/core/js/bxslider/jquery.bxslider.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('bundles/core/js/main.js') }}" type="text/javascript"></script>
+
 {% endblock %}

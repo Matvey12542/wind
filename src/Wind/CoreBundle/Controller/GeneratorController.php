@@ -20,8 +20,11 @@ class GeneratorController extends Controller
      */
     public function indexAction()
     {
+        $slides = $this->getSliderManager()->findAll();
+
         $generators = $this->getGeneratorManager()->findAll();
         return array(
+            'slides' => $slides,
             'generators' =>  $generators
         );
     }
@@ -38,15 +41,10 @@ class GeneratorController extends Controller
         );
     }
 
-
-    public function sliderAction() {
-
-
-    }
-
     /**
      * @Route("/upload")
      * @Template()
+     * @TODO move this method to admin bundle!!!
      */
     public function uploadAction(Request $request)
     {
@@ -83,6 +81,13 @@ class GeneratorController extends Controller
      */
     private function getGeneratorManager() {
         return $this->get('generatorManager');
+    }
+
+    /**
+     * @return object
+     */
+    private function getSliderManager() {
+        return $this->get('sliderManager');
     }
 
     /**

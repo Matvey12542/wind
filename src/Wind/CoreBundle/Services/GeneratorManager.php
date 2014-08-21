@@ -10,6 +10,8 @@ namespace Wind\CoreBundle\Services;
 
 
 use Doctrine\ORM\EntityManager;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+
 
 /**
  * Class GeneratorManager
@@ -28,7 +30,7 @@ class GeneratorManager {
     /**
      * @param $slug
      * @return object
-     * @throws NotFoundException
+     * @throws NotFoundHttpException
      */
     public function findBySlug($slug) {
         $post = $this->em->getRepository('WindModelBundle:Generator')->findOneBy(
@@ -38,7 +40,7 @@ class GeneratorManager {
         );
 
         if (null === $post) {
-            throw new NotFoundException('Post was not found');
+            throw new NotFoundHttpException('Post was not found');
         }
 
         return $post;

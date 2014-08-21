@@ -11,5 +11,5 @@
         </p>
     </header>
 
-    <p>{{ generator.body | truncate(400) }} <a href="{{ path('wind_core_post_show', {slug: generator.slug}) }}">{{ 'read.more' | trans }}">{{ 'read.more' | trans }}">{{ 'read.more' | trans }}</a> </p>
+    <p>{{ generator.body | truncate(400) }} <a href="{{ path('wind_core_generator_show', {slug: generator.slug}) }}">{{ 'read.more' | trans }}</a> </p>
 </article>
