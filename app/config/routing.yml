@@ -24,3 +24,7 @@ admin:
 wind_mail:
     pattern: "/mail"
     defaults: {_controller: WindCoreBundle:Post:mail}
+
+_imagine:
+    resource: .
+    type:     imagine

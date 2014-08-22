@@ -1,3 +1,3 @@
     {% if slide.path %}
-    <li><img src="{{ asset(slide.getWebPath) }}" /></li>
+    <li><img src="{{ asset(slide.getWebPath) | apply_filter('slider') }}" /></li>
     {% endif %}

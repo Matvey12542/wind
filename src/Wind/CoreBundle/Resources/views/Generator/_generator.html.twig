@@ -6,7 +6,7 @@
             {{ 'generator.on' | trans }} <time datetime="{{ generator.createdAt | date('c') }}">{{ generator.createdAt | date }}</time>
             {{ 'by' | trans }} <a href="{{ path('wind_core_author_show', {slug: generator.author.slug}) }}">{{ generator.author.name }}</a>
             {% if generator.path %}
-            <img src="{{ asset(generator.getWebPath) }}" />
+            <img src="{{ asset(generator.getWebPath) | apply_filter('my_thumb') }}" />
             {% endif %}
         </p>
     </header>

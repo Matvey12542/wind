@@ -44,7 +44,7 @@ class Generators extends AbstractFixture implements OrderedFixtureInterface {
 
         $g2 = new Generator();
         $g2->setTitle('Test');
-        $g2->setPath($g1->getWebPath().'/123.jpeg');
+        $g2->setPath($g2->getAbsolutePath().'/123.jpeg');
 
         $g2->setBody('TEst test tste сильные ветра и может быть установлен, к примеру, на яхту, телекоммуникационные вышки и прочие объекты.');
         $g2->setPerformance('0-300');
@@ -56,7 +56,7 @@ class Generators extends AbstractFixture implements OrderedFixtureInterface {
 
         $g3 = new Generator();
         $g3->setTitle('Test test ');
-        $g3->setPath($g1->getWebPath().'/drua_logo.png');
+        $g3->setPath($g3->getAbsolutePath().'/drua_logo.png');
 
         $g3->setBody('buuuuu TEst test tste сильные ветра и может быть установлен, к примеру, на яхту, телекоммуникационные вышки и прочие объекты.');
         $g3->setPerformance('0-500');

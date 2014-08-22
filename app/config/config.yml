@@ -82,3 +82,15 @@ stof_doctrine_extensions:
 #    orm:
 #        default:
 #             sluggable: true
+
+avalanche_imagine:
+    filters:
+        my_thumb:
+            type:    thumbnail
+            options: { size: [300, 300], mode: outbound }
+        slider:
+            type:    thumbnail
+            options: { size: [1200, 300], mode: outbound, quality: 100, format: png }
+        crop:
+             type   : crop
+             options: { start: [0, 0], size: [100, 100] } #crop image with 100x100 square box
