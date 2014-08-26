@@ -1,0 +1,57 @@
+{% extends 'AdminBundle::layout.html.twig' %}
+{% block title %}Author list{% endblock %}
+{% block section %}
+    <h1>Generator</h1>
+
+    <table class="record_properties">
+        <tbody>
+
+            <tr>
+                <th>Title</th>
+                <td>{{ entity.title }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td><img src="{{ asset(entity.getWebPath) | apply_filter('thumb') }}" /></td>
+            </tr>
+            <tr>
+                <th>Body</th>
+                <td>{{ entity.body }}</td>
+            </tr>
+            <tr>
+                <th>Performance</th>
+                <td>{{ entity.performance }}</td>
+            </tr>
+            <tr>
+                <th>Initialspeed</th>
+                <td>{{ entity.initialSpeed }}</td>
+            </tr>
+            <tr>
+                <th>Ratedspeed</th>
+                <td>{{ entity.ratedSpeed }}</td>
+            </tr>
+            <tr>
+                <th>Weight</th>
+                <td>{{ entity.weight }}</td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>{{ entity.price }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('wind_admin_generator_index') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('wind_admin_generator_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

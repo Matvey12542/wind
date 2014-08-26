@@ -1,0 +1,36 @@
+{% extends 'AdminBundle::layout.html.twig' %}
+{% block title %}{{ entity.title }}{% endblock %}
+{% block section %}
+    <h1>Slider</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Title</th>
+                <td>{{ entity.title }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td><img src="{{ asset(entity.getWebPath) | apply_filter('thumb') }}" /></td>
+            </tr>
+            <tr>
+                <th>Body</th>
+                <td>{{ entity.body }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('wind_admin_slider_index') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('wind_admin_slider_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

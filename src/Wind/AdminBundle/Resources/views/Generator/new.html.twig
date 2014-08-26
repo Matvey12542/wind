@@ -1,0 +1,15 @@
+{% extends 'AdminBundle::layout.html.twig' %}
+{% block title %}Generator creation{% endblock %}
+{% block section %}
+    <h1>Generator creation</h1>
+
+    {{ form(form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('wind_admin_generator_index') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}
