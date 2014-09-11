@@ -3,4 +3,4 @@ services:
           class: Wind\AdminBundle\Admin\PostAdmin
           tags:
                 - { name: sonata.admin, manager_type: orm, group: posts, label: posts }
-          arguments: [null, Wind\ModelBundle\Entity\Post, ModelBundle:PostAdmin]
+          arguments: [null, Wind\ModelBundle\Entity\Post, SonataAdminBundle:CRUD]

@@ -31,9 +31,9 @@ class PostAdmin extends Admin {
 
             ->add('title')
             ->add('author')
-            ->add('blog', 'textarea', array('attr'=>array('class'=>'ckeditor')))
-            ->add('file', 'file')
-            ->add('tags')
+//            ->add('blog', 'textarea', array('attr'=>array('class'=>'ckeditor')))
+//            ->add('file', 'file')
+//            ->add('tags')
         ;
     }
 
@@ -47,8 +47,8 @@ class PostAdmin extends Admin {
         $showMapper
             ->add('title')
             ->add('author')
-            ->add('blog')
-            ->add('image')
+//            ->add('blog')
+//            ->add('image')
         ;
     }
 
@@ -62,9 +62,9 @@ class PostAdmin extends Admin {
         $listMapper
             ->addIdentifier('title')
             ->add('author')
-            ->add('blog')
-            ->add('image')
-            ->add('tags')
+//            ->add('blog')
+//            ->add('image')
+//            ->add('tags')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -84,8 +84,8 @@ class PostAdmin extends Admin {
         $datagridMapper
             ->add('title')
             ->add('author')
-            ->add('blog')
-            ->add('image')
+//            ->add('blog')
+//            ->add('image')
         ;
     }
     // setup the default sort column and order
