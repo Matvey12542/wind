@@ -17,8 +17,9 @@
             <tr>
 
                 <td>{{ entity.title }}</td>
-
+              {% autoescape false %}
                 <td>{{ entity.body | truncate(150) }}</td>
+              {% endautoescape %}
                 <td>
                 <ul>
                     <li>

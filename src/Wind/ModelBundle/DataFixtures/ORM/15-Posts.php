@@ -23,6 +23,7 @@ class Posts extends AbstractFixture implements OrderedFixtureInterface
     {
         $p1 = new Post();
         $p1->setTitle('Lorem Ipsum - це текст-"риба');
+        $p1->setOntop(true);
         $p1->setBody('Lorem Ipsum - це текст-"риба", що використовується в друкарстві та дизайні.
          Lorem Ipsum є, фактично, стандартною "рибою" аж з XVI сторіччя, коли невідомий друкар взяв
          шрифтову гранку та склав на ній підбірку зразків шрифтів. "Риба" не тільки успішно пережила пять

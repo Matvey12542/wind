@@ -17,7 +17,6 @@ use Wind\ModelBundle\Form\PostType;
  */
 class PostController extends Controller
 {
-
     /**
      * Lists all Post entities.
      *
@@ -74,6 +73,7 @@ class PostController extends Controller
         $form = $this->createForm(new PostType(), $entity, array(
             'action' => $this->generateUrl('wind_admin_post_create'),
             'method' => 'POST',
+
         ));
 
         $form->add('submit', 'submit', array('label' => 'Create'));

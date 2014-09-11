@@ -3,6 +3,7 @@
 {% block section %}
     <h1>Post creation</h1>
 
+
     {{ form(form) }}
 
         <ul class="record_actions">
@@ -12,4 +13,5 @@
         </a>
     </li>
 </ul>
+    {{ tinymce_init() }}
 {% endblock %}

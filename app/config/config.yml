@@ -97,3 +97,6 @@ avalanche_imagine:
         crop:
              type   : crop
              options: { start: [0, 0], size: [100, 100] } #crop image with 100x100 square box
+knp_menu:
+    twig:
+        template: WindCoreBundle:Default:knp_menu.html.twig

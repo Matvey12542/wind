@@ -15,22 +15,37 @@
         </ul>
     </div>
 {% endblock %}
-{% block sidebar %}
-    <aside>
-        {#<h3>{{ 'generator.latests' | trans }}</h3>#}
-        buuuu
-        {#{% for post in latestPosts %}#}
-        {#<p><a href="{{ path('wind_core_post_show', {slug: post.slug}) }}">{{ post.title }}</a></p>#}
-        {#{% endfor %}#}
-    </aside>
-{% endblock %}
+{#{% block sidebar %}#}
+    {#<aside>#}
+        {##}
+        {#buuuu#}
+        {##}
+    {#</aside>#}
+{#{% endblock %}#}
 
 {% block section %}
 <div class="left-block">
-    {% for generator in generators %}
-        {{ include('CoreBundle:Generator:_generator.html.twig', {generator: generator}) }}
+    {% for post in posts %}
+        {{ include('CoreBundle:Post:_post.html.twig', {post: post}) }}
     {% endfor %}
+
 </div>
+    <hr class="tall">
+
+    <div class="footer-menu">
+        <div class="first">
+            <header>{{ 'The wind farm. Examples & calculations.' | trans }}</header>
+            {{ knp_menu_render('CoreBundle:Builder:footerFirst', {'template': 'CoreBundle:Default:knp_menu.html.twig'}) }}
+        </div>
+        <div class="second">
+            <header>{{ 'Order winds in Ukraine' | trans }}</header>
+            {{ knp_menu_render('CoreBundle:Builder:footerSecond', {'template': 'CoreBundle:Default:knp_menu.html.twig'}) }}
+        </div>
+        <div class="thread">
+            <header>{{ 'Other projects' | trans }}</header>
+            {{ knp_menu_render('CoreBundle:Builder:footerThread', {'template': 'CoreBundle:Default:knp_menu.html.twig'}) }}
+        </div>
+    </div>
 {% endblock %}
 
 {% block javascripts %}
@@ -39,4 +54,8 @@
     <script src="{{ asset('bundles/core/js/bxslider/jquery.bxslider.js') }}" type="text/javascript"></script>
     <script src="{{ asset('bundles/core/js/main.js') }}" type="text/javascript"></script>
 
+{% endblock %}
+
+{% block footer %}
+    <p>{{ 'footer.text' | trans }}</p>
 {% endblock %}
