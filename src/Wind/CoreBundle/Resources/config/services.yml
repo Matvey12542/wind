@@ -31,3 +31,4 @@ services:
                   class: %slider_manager.class%
                   arguments:
                     - @doctrine.orm.entity_manager
+

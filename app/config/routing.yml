@@ -9,16 +9,8 @@ core:
     prefix:   /
 
 #admin:
-#    resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
-#    prefix: /admin
-admin:
-    resource: "@AdminBundle/Controller/"
-    type: annotation
-    prefix: /admin
-
-#_sonata_admin:
-#    resource: .
-#    type: sonata_admin
+#    resource: "@AdminBundle/Controller/"
+#    type: annotation
 #    prefix: /admin
 
 wind_mail:
@@ -28,3 +20,13 @@ wind_mail:
 _imagine:
     resource: .
     type:     imagine
+
+
+admin:
+    resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
+    prefix: /admin
+
+_sonata_admin:
+    resource: .
+    type: sonata_admin
+    prefix: /admin

@@ -18,7 +18,7 @@ security:
             security: false
 
         admin_area:
-          pattern: ^/admin/
+          pattern: ^/admin1/    # chenge to "admin"
           anonymous: ~
           http_basic:
           form_login:
