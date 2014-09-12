@@ -1,15 +1,21 @@
-<article>
+<article class="generator">
     <header>
-        <h2><a href="#">{{ generator.title }}</a></h2>
-        <p class="price">{{ generator.price }} $ </p>
-        <p>
-            {{ 'generator.on' | trans }} <time datetime="{{ generator.createdAt | date('c') }}">{{ generator.createdAt | date }}</time>
-            {{ 'by' | trans }} <a href="{{ path('wind_core_author_show', {slug: generator.author.slug}) }}">{{ generator.author.name }}</a>
-            {% if generator.path %}
-            <img src="{{ asset(generator.getWebPath) | apply_filter('my_thumb') }}" />
-            {% endif %}
-        </p>
+        <h2><a href="{{ path('wind_core_generator_show', {slug: generator.slug}) }}">{{ generator.title }}</a></h2>
     </header>
 
-    <p>{{ generator.body | truncate(400) }} <a href="{{ path('wind_core_generator_show', {slug: generator.slug}) }}">{{ 'read.more' | trans }}</a> </p>
+    <div class="price-logo">
+        <div class="price">{{ generator.price }} $</div>
+
+        {#<div class="time">{{ 'generator.on' | trans }} <time datetime="{{ generator.createdAt | date('c') }}">{{ generator.createdAt | date }}</time></div>#}
+        {#<div class="author">{{ 'by' | trans }} <a href="{{ path('wind_core_author_show', {slug: generator.author.slug}) }}">{{ generator.author.name }}</a></div>#}
+
+        {% if generator.path %}
+            <div class="img"><img src="{{ asset(generator.getWebPath) | apply_filter('my_thumb') }}"/>
+            </div>
+        {% endif %}
+    </div>
+    <div class="body">
+        {{ generator.body | truncate(400) }} <a class="read-more" href="{{ path('wind_core_generator_show', {slug: generator.slug}) }}">{{ 'read.more' | trans }}</a>
+    </div>
+
 </article>

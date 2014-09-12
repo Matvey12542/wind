@@ -1,32 +1,130 @@
-html{
-    position: relative;
-    min-height: 100%
+@font-face {
+  font-family: 'open_sans';
+  src: url('../font/opensans/OpenSans-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+  
+  /*src: url('../fonts/open_sans/opensans-regular-webfont.eot?#iefix') format('embedded-opentype'),*/
+  /*url('../fonts/open_sans/opensans-regular-webfont.woff') format('woff'),*/
+  /*url('../fonts/open_sans/opensans-regular-webfont.ttf') format('truetype'),*/
 }
-aside
-{
-    float: right;
-    width: 350px;
+html {
+  position: relative;
+  min-height: 100%;
 }
-section
-{
-    width: 1254px;
+a {
+  color: #120a00;
+  text-decoration: none;
 }
-
-footer{
-    position: absolute;
-    bottom: 24px;
+a:hover {
+  color: #96949a;
+  text-decoration: none;
 }
-article{
-    padding: 10px;
-    border-bottom: 1px dashed black;
+aside {
+  float: right;
+  width: 350px;
 }
-article header h2 a{
-    color: #252525;
-    font: 24px 'Source Sans Pro', Verdana;
-    font-weight: 900;
-    /*font-size: 17px;*/
-    text-decoration: none;
+section {
+  width: 1254px;
 }
-#header{
-    /*border-bottom: 1px solid black;*/
+footer {
+  position: relative;
+  bottom: 0;
+}
+article {
+  padding: 10px;
+  border-bottom: 1px dashed black;
+}
+article header h2 a {
+  color: #252525;
+  font: 24px 'Source Sans Pro', Verdana;
+  font-weight: 900;
+  /*font-size: 17px;*/
+  text-decoration: none;
+}
+#header {
+  /*border-bottom: 1px solid black;*/
+  width: 1200px;
+  margin: 0 auto;
+}
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+.left-block {
+  width: 66%;
+  background-color: #fff;
+  border: 1px solid #e4e4e4;
+  border-radius: 6px;
+  margin-bottom: 45px;
+  display: inline-block;
+}
+aside {
+  width: 33%;
+  background-color: #fff;
+  border: 1px solid #e4e4e4;
+  border-radius: 6px;
+  margin-bottom: 45px;
+  display: inline-block;
+  min-height: 100px;
+}
+.generator {
+  clear: both;
+  min-height: 200px;
+}
+.generator .price-logo {
+  margin-right: 10px;
+  float: left;
+}
+.generator .price-logo .price {
+  margin-left: 30px;
+}
+.generator .price-logo img {
+  margin: 10px;
+  margin-left: 0px;
+}
+.main-menu li {
+  margin: 10px 0 10px 0 ;
+  float: left;
+  list-style: none;
+  line-height: 24px;
+  position: relative;
+  display: block;
+}
+.main-menu li a {
+  font-family: 'open_sans';
+  font-size: 12px;
+  font-style: normal;
+  line-height: 20px;
+  margin-left: 3px;
+  margin-right: 3px;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 10px 13px;
+  border-radius: 4px;
+  position: relative;
+  display: block;
+  color: #0088cc;
+}
+.main-menu li a.active {
+  color: #FFF;
+  background-color: #0088cc;
+  font-size: 12px;
+  font-style: normal;
+  line-height: 20px;
+  margin-left: 3px;
+  margin-right: 3px;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 10px 13px;
+  border-radius: 4px;
+  position: relative;
+  display: block;
+}
+.main-menu li a:hover {
+  color: #FFF;
+  background-color: #0088cc;
+}
+.slider {
+  margin-top: 50px;
 }

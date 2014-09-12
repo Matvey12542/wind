@@ -6,27 +6,31 @@
 {% endblock %}
 
 {% block title %}{{ 'generator.plural' | trans }}{% endblock %}
+{% block slider %}
+    <div class="slider">
+        <ul class="bxslider">
+            {% for slide in slides %}
+                {{ include('CoreBundle:Slider:_slide.html.twig', {slide: slide}) }}
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
 {% block sidebar %}
     <aside>
         {#<h3>{{ 'generator.latests' | trans }}</h3>#}
         buuuu
         {#{% for post in latestPosts %}#}
-            {#<p><a href="{{ path('wind_core_post_show', {slug: post.slug}) }}">{{ post.title }}</a></p>#}
+        {#<p><a href="{{ path('wind_core_post_show', {slug: post.slug}) }}">{{ post.title }}</a></p>#}
         {#{% endfor %}#}
     </aside>
 {% endblock %}
 
 {% block section %}
-
-    <ul class="bxslider">
-        {% for slide in slides %}
-                {{ include('CoreBundle:Slider:_slide.html.twig', {slide: slide}) }}
-        {% endfor %}
-    </ul>
-
+<div class="left-block">
     {% for generator in generators %}
         {{ include('CoreBundle:Generator:_generator.html.twig', {generator: generator}) }}
     {% endfor %}
+</div>
 {% endblock %}
 
 {% block javascripts %}

@@ -1,0 +1,53 @@
+{% extends 'AdminBundle::layout.html.twig' %}
+{% block title %}Generator list{% endblock %}
+{% block section %}
+    <h1>Generator list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Image</th>
+                <th>Body</th>
+                <th>Performance</th>
+                <th>Initialspeed</th>
+                <th>Ratedspeed</th>
+                <th>Weight</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td>{{ entity.title }}</td>
+                <td><img src="{{ asset(entity.getWebPath) | apply_filter('thumb') }}" /></td>
+                <td>{{ entity.body }}</td>
+                <td>{{ entity.performance }}</td>
+                <td>{{ entity.initialSpeed }}</td>
+                <td>{{ entity.ratedSpeed }}</td>
+                <td>{{ entity.weight }}</td>
+                <td>{{ entity.price }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('wind_admin_generator_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('wind_admin_generator_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('wind_admin_generator_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

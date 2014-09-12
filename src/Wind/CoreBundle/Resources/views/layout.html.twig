@@ -5,26 +5,30 @@
 {% endblock %}
 
 {% block body %}
-<header id="header">
-    <p>Symfony 2 blog</p>
-    <nav>
-        <li><a href="{{ path('wind_core_post_index') }}">{{ 'home' | trans }}</a> </li>
-        <li><a href="{{ path('wind_core_post_index') }}">{{ 'nav' | trans }}</a> </li>
-        <li><a href="{{ path('wind_core_post_index') }}">{{ 'buuu' | trans }}</a> </li>
-    </nav>
-</header>
+    <header id="header">
+        <a href="{{ path('wind_core_generator_index') }}"> Symfony 2 blog</a>
+        <nav class="main-menu">
+            <li><a href="{{ path('wind_core_generator_index') }}" {% if app.request.get('_route') == 'wind_core_generator_index' %} class="active"{% endif %}>{{ 'home' | trans }}</a></li>
+            <li><a href="{{ path('wind_core_post_index') }}" {% if app.request.get('_route') == 'wind_core_post_index' %} class="active"{% endif %}>{{ 'posts' | trans }}</a></li>
+            <li><a href="{{ path('wind_core_post_index') }}" >{{ 'buuu' | trans }}</a></li>
+        </nav>
+    </header>
 
-    {% block sidebar %}{% endblock %}
+    {% block slider %}{% endblock %}
 
-    <section>
-        {% for type,messages in app.session.flashbag.all() %}
-            {% for message in messages %}
-                <p class="session-message">{{ message }}</p>
+    <div class="container">
+        {% block sidebar %}{% endblock %}
+
+        <section class="container">
+            {% for type,messages in app.session.flashbag.all() %}
+                {% for message in messages %}
+                    <p class="session-message">{{ message }}</p>
+                {% endfor %}
             {% endfor %}
-        {% endfor %}
-        {% block section %}{% endblock %}
-    </section>
-    <footer>
+            {% block section %}{% endblock %}
+        </section>
+    </div>
+    <footer class="container">
         <p>@ {{ 'now' | date('Y') }} Symfony 2 Blog</p>
     </footer>
 {% endblock %}
