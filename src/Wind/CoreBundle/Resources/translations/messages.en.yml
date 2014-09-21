@@ -6,7 +6,7 @@ author: Author
 on: On
 name: Name
 send: Send
-
+wind.turbines: Wind turbines
 post:
   plural: Post
   latests: latests

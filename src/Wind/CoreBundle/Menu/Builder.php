@@ -24,12 +24,13 @@ class Builder extends ContainerAware
       'route' => 'wind_core_generator_index',
     ))->setAttribute('class', 'dropdown');
     $menu['Productions']->setExtra('translation_domain', 'WindCoreBundle');
-    $menu['Productions']->addChild('Wind 500Wt', array('route' => 'wind_core_generator_index'))->setExtra('translation_domain', 'WindCoreBundle');
-    $menu['Productions']->addChild('Wind 1kWt', array('route' => 'wind_core_generator_index'))->setExtra('translation_domain', 'WindCoreBundle');
-    $menu['Productions']->addChild('Wind 5kWt', array('route' => 'wind_core_generator_index'))->setExtra('translation_domain', 'WindCoreBundle');
-    $menu['Productions']->addChild('Wind 10kWt', array('route' => 'wind_core_generator_index'))->setExtra('translation_domain', 'WindCoreBundle');
-    $menu['Productions']->addChild('Wind 20kWt', array('route' => 'wind_core_generator_index'))->setExtra('translation_domain', 'WindCoreBundle');
-    $menu['Productions']->addChild('Order', array('route' => 'wind_core_generator_index'))->setExtra('translation_domain', 'WindCoreBundle');
+    $menu['Productions']->addChild('Wind tyrbines', array('route' => 'wind_core_generator_index'))->setExtra('translation_domain', 'WindCoreBundle');
+    $menu['Productions']->addChild('Tree Bulb', array('route' => 'wind_core_generator_index'))->setExtra('translation_domain', 'WindCoreBundle');
+    $menu['Productions']->addChild('Sonyachna power', array('route' => 'wind_core_generator_index'))->setExtra('translation_domain', 'WindCoreBundle');
+    $menu['Productions']->addChild('Controlers', array('route' => 'wind_core_generator_index'))->setExtra('translation_domain', 'WindCoreBundle');
+    $menu['Productions']->addChild('Solar battery', array('route' => 'wind_core_generator_index'))->setExtra('translation_domain', 'WindCoreBundle');
+    $menu['Productions']->addChild('Heat pumps', array('route' => 'wind_core_generator_index'))->setExtra('translation_domain', 'WindCoreBundle');
+    $menu['Productions']->addChild('LED Lighting', array('route' => 'wind_core_generator_index'))->setExtra('translation_domain', 'WindCoreBundle');
 
     $menu->addChild('Solutions', array(
       'route' => 'wind_core_generator_index',
@@ -47,7 +48,7 @@ class Builder extends ContainerAware
     $menu['Design']->addChild('Order plan', array('route' => 'wind_core_generator_index'))->setExtra('translation_domain', 'WindCoreBundle');
 
     $menu->addChild('Questions Answers', array('route' => 'wind_core_generator_index'))->setExtra('translation_domain', 'WindCoreBundle');
-    $menu->addChild('Blog', array('route' => 'wind_core_generator_index'))->setExtra('translation_domain', 'WindCoreBundle');
+    $menu->addChild('Posts', array('route' => 'wind_core_generator_index'))->setExtra('translation_domain', 'WindCoreBundle');
     $menu->addChild('Winds', array('route' => 'wind_core_generator_index'))->setExtra('translation_domain', 'WindCoreBundle');
     $menu->addChild('Contacts', array('route' => 'wind_core_generator_index'))->setExtra('translation_domain', 'WindCoreBundle');
     return $menu;
