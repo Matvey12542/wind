@@ -4,7 +4,7 @@ parameters:
   author_manager.class:     Wind\CoreBundle\Services\AuthorManager
   post_manager.class:       Wind\CoreBundle\Services\PostManager
   generator_manager.class:  Wind\CoreBundle\Services\GeneratorManager
-  slider_manager.class:  Wind\CoreBundle\Services\SliderManager
+  slider_manager.class:     Wind\CoreBundle\Services\SliderManager
 
 services:
     my_mailer:

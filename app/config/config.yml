@@ -70,7 +70,7 @@ sonata_admin:
     title: Symblog Admin
 
 sonata_block:
-    default_contexts: [cms]
+    default_contexts: [sonata_page_bundle]
     blocks:
         sonata.admin.block.admin_list:
             contexts:   [admin]
@@ -103,3 +103,13 @@ avalanche_imagine:
         crop:
              type   : crop
              options: { start: [0, 0], size: [100, 100] } #crop image with 100x100 square box
+
+#sonata_block:
+#    blocks:
+#        acme_main.block.news:
+#            settings:
+#                maxItems: 3
+#    blocks_by_class:
+#        Symfony\Cmf\Bundle\BlockBundle\Doctrine\Phpcr\RssBlock:
+#            settings:
+#                maxItems: 5
