@@ -23,6 +23,12 @@ class Post extends Timestampable
      */
     private $id;
 
+  /**
+   * @ORM\Column(name="ontop", type="boolean", nullable=true)
+   *
+   */
+  private $ontop = false;
+
     /**
      * @var string
      *
@@ -67,6 +73,7 @@ class Post extends Timestampable
     public function __construct()
     {
         $this->comments = new ArrayCollection();
+//      $this->ontop = false;
     }
 
     /**
@@ -79,6 +86,28 @@ class Post extends Timestampable
         return $this->id;
     }
 
+  /**
+   * Set ontop
+   *
+   * @param boolean $ontop
+   * @return Post
+   */
+  public function setOntop($ontop = 0)
+  {
+    $this->ontop = $ontop;
+
+    return $this;
+  }
+
+  /**
+   * Get ontop
+   *
+   * @return boolean
+   */
+  public function getOntop()
+  {
+    return $this->ontop;
+  }
     /**
      * Set title
      *

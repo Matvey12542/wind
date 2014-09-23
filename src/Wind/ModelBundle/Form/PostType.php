@@ -16,7 +16,12 @@ class PostType extends AbstractType
     {
         $builder
             ->add('title')
-            ->add('body')
+            ->add('ontop')
+            ->add('body', 'textarea', array(
+            'attr' => array(
+              'class' => 'tinymce',
+              'data-theme' => 'advanced' // Skip it if you want to use default theme
+            )))
             ->add('author')
         ;
     }

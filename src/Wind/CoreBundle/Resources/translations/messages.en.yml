@@ -1,12 +1,12 @@
 home: Home
-
+Home: Home
 by: by
 read.more: Read more
 author: Author
 on: On
 name: Name
 send: Send
-
+wind.turbines: Wind turbines
 post:
   plural: Post
   latests: latests
@@ -25,3 +25,10 @@ comment.write: Write
 
 generator:
   on: Posted on
+
+Wind.turbines : wind.turbines
+telephone: Telephone
+
+The wind farm. Examples & calculations.: The wind farm. Examples & calculations.
+
+footer.text: On our site you will find a wide range of wind turbines. Familiarize yourself with our range of products and prices, you will make sure that the trade mark "Green Energy" sells high quality wind turbines at the best value. Our generators are the most advanced equipment on the market of Ukraine. Sale of wind turbines, we provide in Kiev, Odessa, Donetsk, Kharkiv, Lviv, Dnepropetrovsk and other cities of Ukraine. Every customer is unique to us, so we thoroughly examine your question and choose the optimal configuration for you. Having bought a wind turbine from us, you will get a really reliable products of the highest quality at the best price.

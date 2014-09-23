@@ -13,7 +13,9 @@
 
             <tr>
                 <th>Body</th>
+                {% autoescape false %}
                 <td>{{ entity.body | nl2br }}</td>
+                {% endautoescape %}
             </tr>
         </tbody>
     </table>

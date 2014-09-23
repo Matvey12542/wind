@@ -6,13 +6,16 @@
 
 {% block body %}
     <header id="header">
-        <a href="{{ path('wind_core_generator_index') }}"> Symfony 2 blog</a>
-        <nav class="main-menu">
-            <li><a href="{{ path('wind_core_generator_index') }}" {% if app.request.get('_route') == 'wind_core_generator_index' %} class="active"{% endif %}>{{ 'home' | trans }}</a></li>
-            <li><a href="{{ path('wind_core_post_index') }}" {% if app.request.get('_route') == 'wind_core_post_index' %} class="active"{% endif %}>{{ 'posts' | trans }}</a></li>
-            <li><a href="{{ path('wind_core_post_index') }}" >{{ 'buuu' | trans }}</a></li>
-        </nav>
+        <div class="logo"><a class="logo-text" href="{{ path('wind_core_generator_index') }}">{{ 'Wind.turbines' | trans }}</a></div>
+        <div class="tel"><span class="label">{{ 'telephone' | trans }}</span><span class="text">{{ '050 721 6789' }}</span></div>
+
     </header>
+    <nav class="top-menu container">
+        {#<li><a href="{{ path('wind_core_generator_index') }}" {% if app.request.get('_route') == 'wind_core_generator_index' %} class="active"{% endif %}>{{ 'home' | trans }}</a></li>
+        <li><a href="{{ path('wind_core_post_index') }}" {% if app.request.get('_route') == 'wind_core_post_index' %} class="active"{% endif %}>{{ 'posts' | trans }}</a></li>
+        <li><a href="{{ path('wind_core_post_index') }}" >{{ 'buuu' | trans }}</a></li>#}
+        {{ knp_menu_render('CoreBundle:Builder:mainMenu', {'template': 'CoreBundle:Default:knp_menu.html.twig'}) }}
+    </nav>
 
     {% block slider %}{% endblock %}
 
@@ -29,6 +32,8 @@
         </section>
     </div>
     <footer class="container">
-        <p>@ {{ 'now' | date('Y') }} Symfony 2 Blog</p>
+        {% block footer %}
+        <p>@ {{ 'corp' | trans }}</p>
+        {% endblock %}
     </footer>
 {% endblock %}

@@ -1,15 +1,17 @@
-<article>
+<article class="front front-posts">
     <header>
         <h2><a href="{{ path('wind_core_post_show', {slug: post.slug}) }}">{{ post.title }}</a></h2>
-        <p>
-            {{ 'post.on' | trans }} <time datetime="{{ post.createdAt | date('c') }}">{{ post.createdAt | date }}</time>
-            {{ 'by' | trans }} <a href="{{ path('wind_core_author_show', {slug: post.author.slug}) }}">{{ post.author.name }}</a>
-            - <a href="{{ path('wind_core_post_show', {slug: post.slug}) }}#comments">
-                {% set count = post.comments | length %}
-                {{ 'post.comments' | transchoice(count) }}
-            </a>
-        </p>
+        {#<p>#}
+            {#{{ 'post.on' | trans }} <time datetime="{{ post.createdAt | date('c') }}">{{ post.createdAt | date }}</time>#}
+            {#{{ 'by' | trans }} <a href="{{ path('wind_core_author_show', {slug: post.author.slug}) }}">{{ post.author.name }}</a>#}
+            {#- <a href="{{ path('wind_core_post_show', {slug: post.slug}) }}#comments">#}
+                {#{% set count = post.comments | length %}#}
+                {#{{ 'post.comments' | transchoice(count) }}#}
+            {#</a>#}
+        {#</p>#}
     </header>
 
-    <p>{{ post.body | truncate(400) }} <a href="{{ path('wind_core_post_show', {slug: post.slug}) }}">{{ 'read.more' | trans }}</a> </p>
+    {#<p>{% autoescape false %}{{ post.body  }}{% endautoescape %} <a href="{{ path('wind_core_post_show', {slug: post.slug}) }}">{{ 'read.more' | trans }}</a> </p>#}
+    {% autoescape false %}{{ post.body  }}{% endautoescape %}
+
 </article>

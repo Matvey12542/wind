@@ -22,10 +22,12 @@ class GeneratorController extends Controller
     {
         $slides = $this->getSliderManager()->findAll();
 
-        $generators = $this->getGeneratorManager()->findAll();
+//        $generators = $this->getGeneratorManager()->findAll();
+      $em = $this->getDoctrine()->getManager()->getRepository('WindModelBundle:Post');
+      $main = $em->findBy(array('ontop' => true));
         return array(
             'slides' => $slides,
-            'generators' =>  $generators
+            'posts' =>  $main
         );
     }
 
