@@ -3,6 +3,7 @@
 namespace Wind\ModelBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Translatable\Translatable;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -14,7 +15,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * @ORM\Table()
  * @ORM\Entity
  */
-class Generator extends Timestampable
+class Generator extends Timestampable implements Translatable
 {
     /**
      * @var integer
@@ -35,7 +36,7 @@ class Generator extends Timestampable
     
     /**
      * @var string
-     *
+     * @Gedmo\Translatable()
      * @ORM\Column(name="title", type="string", length=255)
      */
     private $title;
@@ -52,7 +53,7 @@ class Generator extends Timestampable
 
     /**
      * @var string
-     *
+     * @Gedmo\Translatable()
      * @ORM\Column(name="body", type="text")
      */
     private $body;
@@ -100,6 +101,11 @@ class Generator extends Timestampable
      * @Assert\NotBlank()
      */
     private $author;
+
+    /**
+     * @Gedmo\Locale()
+     */
+    private $locale;
 
     /**
      * Get id
@@ -398,5 +404,9 @@ class Generator extends Timestampable
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    public function setTranslatableLocale($locale) {
+        $this->locale = $locale;
     }
 }

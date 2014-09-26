@@ -23,8 +23,9 @@ class GeneratorController extends Controller
         $slides = $this->getSliderManager()->findAll();
 
 //        $generators = $this->getGeneratorManager()->findAll();
-      $em = $this->getDoctrine()->getManager()->getRepository('WindModelBundle:Post');
-      $main = $em->findBy(array('ontop' => true));
+//      $em = $this->getDoctrine()->getManager()->getRepository('WindModelBundle:Post');
+//      $main = $em->findBy(array('ontop' => true));
+        $main = $this->getPostManager()->findLatest(3, 'ua');
         return array(
             'slides' => $slides,
             'posts' =>  $main
@@ -77,19 +78,22 @@ class GeneratorController extends Controller
 
         return array('form' => $form->createView());
     }
+    private function getPostManager() {
+        return$this->get('post_manager');
+    }
 
     /**
      * @return object
      */
     private function getGeneratorManager() {
-        return $this->get('generatorManager');
+        return $this->get('generator_manager');
     }
 
     /**
      * @return object
      */
     private function getSliderManager() {
-        return $this->get('sliderManager');
+        return $this->get('slider_manager');
     }
 
     /**

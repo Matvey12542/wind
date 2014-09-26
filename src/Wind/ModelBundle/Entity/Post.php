@@ -3,6 +3,7 @@
 namespace Wind\ModelBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Translatable\Translatable;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
 use Gedmo\Mapping\Annotation as Gedmo;
@@ -12,7 +13,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="Wind\ModelBundle\Repository\PostRepository")
  */
-class Post extends Timestampable
+class Post extends Timestampable implements Translatable
 {
     /**
      * @var integer
@@ -31,7 +32,7 @@ class Post extends Timestampable
 
     /**
      * @var string
-     *
+     * @Gedmo\Translatable()
      * @ORM\Column(name="title", type="string", length=150)
      * @Assert\NotBlank()
      */
@@ -46,7 +47,7 @@ class Post extends Timestampable
     private $slug;
     /**
      * @var string
-     *
+     * @Gedmo\Translatable()
      * @ORM\Column(name="body", type="text")
      */
     private $body;
@@ -66,6 +67,11 @@ class Post extends Timestampable
      * @ORM\OneToMany(targetEntity="Comment", mappedBy="post", cascade={"remove"})
      */
     private $comments;
+
+    /**
+     * @Gedmo\Locale()
+     */
+    private $locale;
 
     /**
      * Constructor
@@ -232,5 +238,9 @@ class Post extends Timestampable
     public function getComments()
     {
         return $this->comments;
+    }
+
+    public function setTranslatableLocale($locale) {
+        $this->locale = $locale;
     }
 }

@@ -41,6 +41,7 @@ class Generators extends AbstractFixture implements OrderedFixtureInterface {
         $g1->setWeight('30');
         $g1->setPrice(525);
         $g1->setAuthor($this->getAuthor($manager,"Kolya"));
+        $g1->setTranslatableLocale('ua_Uk'); // Change la locale
 
         $g2 = new Generator();
         $g2->setTitle('Test');

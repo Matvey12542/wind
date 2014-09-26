@@ -26,7 +26,7 @@ comment.write: Write
 generator:
   on: Posted on
 
-Wind.turbines : wind.turbines
+wind.turbines : Wind turbines
 telephone: Telephone
 
 The wind farm. Examples & calculations.: The wind farm. Examples & calculations.

@@ -10,7 +10,7 @@
     <div class="slider">
         <ul class="bxslider">
             {% for slide in slides %}
-                {{ include('CoreBundle:Slider:_slide.html.twig', {slide: slide}) }}
+                {#{{ include('CoreBundle:Slider:_slide.html.twig', {slide: slide}) }}#}
             {% endfor %}
         </ul>
     </div>
@@ -36,20 +36,20 @@
 </div>
     <hr class="tall">
 
-    <div class="footer-menu">
-        <div class="first">
-            <header>{{ 'The wind farm. Examples & calculations.' | trans }}</header>
-            {{ knp_menu_render('CoreBundle:Builder:footerFirst', {'template': 'CoreBundle:Default:knp_menu.html.twig'}) }}
-        </div>
-        <div class="second">
-            <header>{{ 'Order winds in Ukraine' | trans }}</header>
-            {{ knp_menu_render('CoreBundle:Builder:footerSecond', {'template': 'CoreBundle:Default:knp_menu.html.twig'}) }}
-        </div>
-        <div class="thread">
-            <header>{{ 'Other projects' | trans }}</header>
-            {{ knp_menu_render('CoreBundle:Builder:footerThread', {'template': 'CoreBundle:Default:knp_menu.html.twig'}) }}
-        </div>
-    </div>
+    {#<div class="footer-menu">#}
+        {#<div class="first">#}
+            {#<header>{{ 'The wind farm. Examples & calculations.' | trans }}</header>#}
+            {#{{ knp_menu_render('CoreBundle:Builder:footerFirst', {'template': 'CoreBundle:Default:knp_menu.html.twig'}) }}#}
+        {#</div>#}
+        {#<div class="second">#}
+            {#<header>{{ 'Order winds in Ukraine' | trans }}</header>#}
+            {#{{ knp_menu_render('CoreBundle:Builder:footerSecond', {'template': 'CoreBundle:Default:knp_menu.html.twig'}) }}#}
+        {#</div>#}
+        {#<div class="thread">#}
+            {#<header>{{ 'Other projects' | trans }}</header>#}
+            {#{{ knp_menu_render('CoreBundle:Builder:footerThread', {'template': 'CoreBundle:Default:knp_menu.html.twig'}) }}#}
+        {#</div>#}
+    {#</div>#}
 {% endblock %}
 
 {% block javascripts %}

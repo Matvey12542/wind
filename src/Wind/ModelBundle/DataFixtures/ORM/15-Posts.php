@@ -32,9 +32,11 @@ class Posts extends AbstractFixture implements OrderedFixtureInterface
         які містили уривки з Lorem Ipsum, і вдруге - нещодавно завдяки програмам компютерного верстування
          на кшталт Aldus Pagemaker, які використовували різні версії Lorem Ipsum.');
         $p1->setAuthor($this->getAuthor($manager, "Kolya"));
+        $p1->setTranslatableLocale('ua_Uk'); // Change la locale
 
         $p2 = new Post();
         $p2->setTitle('які використовували різні версії Lorem Ipsum.');
+        $p2->setOntop(true);
         $p2->setBody(' склав на ній підбірку зразків шрифтів. "Риба" не тільки успішно пережила пять
           століть, але й прижилася в електронному верстуванні, залишаючись по суті незмінною.
           Вона популяризувалась в 60-их роках минулого сторіччя завдяки виданню зразків шрифтів Letraset,
@@ -46,8 +48,10 @@ class Posts extends AbstractFixture implements OrderedFixtureInterface
          на кшталт Aldus Pagemaker, які використовували різні версії Lorem Ipsum');
         $p2->setAuthor($this->getAuthor($manager, "David"));
 
+
         $p3 = new Post();
         $p3->setTitle('які використовували різні версії Lorem Ipsum.');
+        $p3->setOntop(true);
         $p3->setBody(' склав на ній підбірку зразків шрифтів. "Риба" не тільки успішно пережила пять
           століть, але й прижилася в електронному верстуванні, залишаючись по суті незмінною.
           Вона популяризувалась в 60-их роках минулого сторіччя завдяки виданню зразків шрифтів Letraset,

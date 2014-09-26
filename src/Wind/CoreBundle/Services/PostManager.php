@@ -41,8 +41,8 @@ class PostManager {
      * @param $num
      * @return mixed
      */
-    public function findLatest($num) {
-        $latestPosts = $this->em->getRepository('WindModelBundle:Post')->findLatests($num);
+    public function findLatest($num, $locale) {
+        $latestPosts = $this->em->getRepository('WindModelBundle:Post')->findLatests($num, $locale);
 
         return $latestPosts;
     }
