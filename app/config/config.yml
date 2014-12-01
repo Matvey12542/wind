@@ -118,4 +118,7 @@ avalanche_imagine:
 knp_menu:
     twig:
         template: WindCoreBundle:Default:knp_menu.html.twig
-
+fos_user:
+  db_driver: orm
+  firewall_name: main
+  user_class: Wind\ModelBundle\Entity\User
