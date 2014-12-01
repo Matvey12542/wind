@@ -10,7 +10,7 @@
     <div class="slider">
         <ul class="bxslider">
             {% for slide in slides %}
-                {#{{ include('CoreBundle:Slider:_slide.html.twig', {slide: slide}) }}#}
+                {{ include('CoreBundle:Slider:_slide.html.twig', {slide: slide}) }}
             {% endfor %}
         </ul>
     </div>
@@ -34,6 +34,12 @@
     {% endfor %}
 
 </div>
+
+    <form action="{{ path('wind_core_generator_index') }}" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+
+        <input type="submit" />
+    </form>
     <hr class="tall">
 
     {#<div class="footer-menu">#}

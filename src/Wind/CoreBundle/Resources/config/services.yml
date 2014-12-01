@@ -5,6 +5,7 @@ parameters:
   post_manager.class:       Wind\CoreBundle\Services\PostManager
   generator_manager.class:  Wind\CoreBundle\Services\GeneratorManager
   slider_manager.class:     Wind\CoreBundle\Services\SliderManager
+  test_event.class:         Wind\CoreBundle\Services\TestEvent
 
 services:
     my_mailer:
@@ -31,4 +32,11 @@ services:
                   class: %slider_manager.class%
                   arguments:
                     - @doctrine.orm.entity_manager
+
+    wind_listener_login:
+      class: %test_event.class%
+#      arguments: ["@fos_user.user_manager", "@security.context"]
+      tags:
+        - { name: doctrine.event_listener, event: postPersist }
+
 
