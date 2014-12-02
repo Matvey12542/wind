@@ -16,9 +16,9 @@ class GeneratorController extends Controller
 {
     /**
      * @Route("/")
-     * @Template()
+     * @Template("CoreBundle:Index:index.html.twig")
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $slides = $this->getSliderManager()->findAll();
 
@@ -26,9 +26,36 @@ class GeneratorController extends Controller
 //      $em = $this->getDoctrine()->getManager()->getRepository('WindModelBundle:Post');
 //      $main = $em->findBy(array('ontop' => true));
         $main = $this->getPostManager()->findLatest(3, 'ua');
+
+
+//        $generator = new Generator();
+////        $generator->setTitle('Title');
+//        $form = $this->createFormBuilder($generator)
+//            ->add('title', 'text')
+//            ->getForm();
+//
+//        if ($request->getMethod() == 'POST') {
+//            return $this->redirect();
+//        }
         return array(
             'slides' => $slides,
-            'posts' =>  $main
+            'posts' =>  $main,
+//            'form' => $form->createView()
+        );
+    }
+
+    /**
+     * @Route("/generator")
+     * @Template("CoreBundle:Generator:index.html.twig");
+     */
+    public function generatorAction(Request $request) {
+        $locale = $request->getLocale();
+        $slides = $this->getSliderManager()->findAll();
+        $generators = $this->getGeneratorManager()->findAll($locale);
+
+        return array(
+            'slides' => $slides,
+            'generators' => $generators,
         );
     }
 
@@ -79,7 +106,7 @@ class GeneratorController extends Controller
         return array('form' => $form->createView());
     }
     private function getPostManager() {
-        return$this->get('post_manager');
+        return $this->get('post_manager');
     }
 
     /**

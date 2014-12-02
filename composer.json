@@ -34,7 +34,8 @@
 
         "sonata-project/doctrine-orm-admin-bundle": "*",
         "avalanche123/imagine-bundle": "v2.1",
-        "stfalcon/tinymce-bundle": "dev-master"
+        "stfalcon/tinymce-bundle": "dev-master",
+        "friendsofsymfony/user-bundle": "*"
     },
     "scripts": {
         "post-install-cmd": [

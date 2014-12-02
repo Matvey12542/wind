@@ -8,7 +8,7 @@
     <header id="header">
         <div class="logo"><a class="logo-text" href="{{ path('wind_core_generator_index') }}">{{ 'wind.turbines' | trans }}</a></div>
         <div class="tel"><span class="label">{{ 'telephone' | trans }}</span><span class="text">{{ '050 721 6789' }}</span></div>
-
+        {{ knp_menu_render('CoreBundle:Builder:languageMenu', {'template': 'CoreBundle:Default:knp_menu.html.twig'}) }}
     </header>
     <nav class="top-menu container">
         {#<li><a href="{{ path('wind_core_generator_index') }}" {% if app.request.get('_route') == 'wind_core_generator_index' %} class="active"{% endif %}>{{ 'home' | trans }}</a></li>
