@@ -30,7 +30,7 @@ class PostController extends Controller
     public function indexAction()
     {
         $posts = $this->getPostManager()->findAll();
-        $latestPosts = $this->getPostManager()->findLatest(5);
+        $latestPosts = $this->getPostManager()->findLatest(5, 'ua');
 
         return array(
             'posts' => $posts,

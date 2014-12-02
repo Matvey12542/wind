@@ -11,48 +11,49 @@ use Doctrine\Common\Persistence\ObjectManager;
  */
 class Posts extends AbstractFixture implements OrderedFixtureInterface
 {
-    /**
-     * {@inheritDoc}
-     */
-    public function getOrder()
-    {
-        return 15;
-    }
-
-    public function load(ObjectManager $manager)
-    {
-        $p1 = new Post();
-        $p1->setTitle('Lorem Ipsum - це текст-"риба');
-        $p1->setOntop(true);
-        $p1->setBody('Lorem Ipsum - це текст-"риба", що використовується в друкарстві та дизайні.
-         Lorem Ipsum є, фактично, стандартною "рибою" аж з XVI сторіччя, коли невідомий друкар взяв
-         шрифтову гранку та склав на ній підбірку зразків шрифтів. "Риба" не тільки успішно пережила пять
+  protected $posts = array(
+    array(
+      'title' => 'Lorem Ipsum - це текст-"риба',
+      'onTop' => true,
+      'body' => 'Lorem Ipsum - це текст-"риба", що використовується в друкарстві та дизайні.
+          Lorem Ipsum є, фактично, стандартною "рибою" аж з XVI сторіччя, коли невідомий друкар взяв
+          шрифтову гранку та склав на ній підбірку зразків шрифтів. "Риба" не тільки успішно пережила пять
           століть, але й прижилася в електронному верстуванні, залишаючись по суті незмінною.
           Вона популяризувалась в 60-их роках минулого сторіччя завдяки виданню зразків шрифтів Letraset,
-        які містили уривки з Lorem Ipsum, і вдруге - нещодавно завдяки програмам компютерного верстування
-         на кшталт Aldus Pagemaker, які використовували різні версії Lorem Ipsum.');
-        $p1->setAuthor($this->getAuthor($manager, "Kolya"));
-        $p1->setTranslatableLocale('ua_Uk'); // Change la locale
-
-        $p2 = new Post();
-        $p2->setTitle('які використовували різні версії Lorem Ipsum.');
-        $p2->setOntop(true);
-        $p2->setBody(' склав на ній підбірку зразків шрифтів. "Риба" не тільки успішно пережила пять
+          які містили уривки з Lorem Ipsum, і вдруге - нещодавно завдяки програмам компютерного верстування
+         на кшталт Aldus Pagemaker, які використовували різні версії Lorem Ipsum.',
+      'author' => 'Kolya',
+      'en' => array(
+        'title' => 'english title 1',
+        'body' => 'English body1 Aldus Pagemaker Aldus PagemakerAldus PagemakerAldus PagemakerAldus Pagemaker
+          Aldus PagemakerAldus PagemakerAldus PagemakerAldus PagemakerAldus PagemakerAldus PagemakerAldus Pagemaker
+          Aldus PagemakerAldus PagemakerAldus PagemakerAldus PagemakerAldus PagemakerAldus PagemakerAldus Pagemaker',
+      ),
+    ),
+    array(
+      'title' => 'які використовували різні версії Lorem Ipsum.',
+      'onTop' => true,
+      'body' => ' склав на ній підбірку зразків шрифтів. "Риба" не тільки успішно пережила пять
           століть, але й прижилася в електронному верстуванні, залишаючись по суті незмінною.
           Вона популяризувалась в 60-их роках минулого сторіччя завдяки виданню зразків шрифтів Letraset,
-        які містили уривки з Lorem Ipsum, і вдруге - нещодавно завдяки програмам компютерного верстування
-         на кшталт Aldus Pagemaker, які використовували різні версії Lorem Ipsum  склав на ній підбірку зразків шрифтів. "Риба" не тільки успішно пережила пять
+          які містили уривки з Lorem Ipsum, і вдруге - нещодавно завдяки програмам компютерного верстування
+          на кшталт Aldus Pagemaker, які використовували різні версії Lorem Ipsum  склав на ній підбірку зразків шрифтів. "Риба" не тільки успішно пережила пять
           століть, але й прижилася в електронному верстуванні, залишаючись по суті незмінною.
           Вона популяризувалась в 60-их роках минулого сторіччя завдяки виданню зразків шрифтів Letraset,
-        які містили уривки з Lorem Ipsum, і вдруге - нещодавно завдяки програмам компютерного верстування
-         на кшталт Aldus Pagemaker, які використовували різні версії Lorem Ipsum');
-        $p2->setAuthor($this->getAuthor($manager, "David"));
-
-
-        $p3 = new Post();
-        $p3->setTitle('які використовували різні версії Lorem Ipsum.');
-        $p3->setOntop(true);
-        $p3->setBody(' склав на ній підбірку зразків шрифтів. "Риба" не тільки успішно пережила пять
+          які містили уривки з Lorem Ipsum, і вдруге - нещодавно завдяки програмам компютерного верстування
+         на кшталт Aldus Pagemaker, які використовували різні версії Lorem Ipsum',
+      'author' => 'David',
+      'en' => array(
+        'title' => 'english title 2',
+        'body' => 'English body2  Aldus Pagemaker Aldus PagemakerAldus PagemakerAldus PagemakerAldus Pagemaker
+          Aldus PagemakerAldus PagemakerAldus PagemakerAldus PagemakerAldus PagemakerAldus PagemakerAldus Pagemaker
+          Aldus PagemakerAldus PagemakerAldus PagemakerAldus PagemakerAldus PagemakerAldus PagemakerAldus Pagemaker',
+      ),
+    ),
+    array(
+      'title' => 'які використовували різні версії Lorem Ipsum.',
+      'onTop' => true,
+      'body' => ' склав на ній підбірку зразків шрифтів. "Риба" не тільки успішно пережила пять
           століть, але й прижилася в електронному верстуванні, залишаючись по суті незмінною.
           Вона популяризувалась в 60-их роках минулого сторіччя завдяки виданню зразків шрифтів Letraset,
         які міснаем с создания объекта Blog и установки знтили уривки з Lorem Ipsum, і вдруге - нещодавно завдяки програмам компютерного верстування
@@ -61,28 +62,57 @@ class Posts extends AbstractFixture implements OrderedFixtureInterface
           століть, але й прижилася в електронному верстуванні, залишаючись по суті незмінною.
           Вона популяризувалась в 60-их роках минулого сторіччя завдяки виданню зразків шрифтів Letraset,
         які містили уривки з Lorem Ipsum, і вдруге - нещодавно завдяки програмам компютерного верстування
-         на кшталт Aldus Pagemaker, які використовували різні версії Lorem Ipsum');
-        $p3->setAuthor($this->getAuthor($manager, "Buuu"));
+         на кшталт Aldus Pagemaker, які використовували різні версії Lorem Ipsum',
+      'author' => 'Buuu',
+      'en' => array(
+        'title' => 'english title 3',
+        'body' => 'English body3  Aldus Pagemaker Aldus PagemakerAldus PagemakerAldus PagemakerAldus Pagemaker
+            Aldus PagemakerAldus PagemakerAldus PagemakerAldus PagemakerAldus PagemakerAldus PagemakerAldus Pagemaker
+            Aldus PagemakerAldus PagemakerAldus PagemakerAldus PagemakerAldus PagemakerAldus PagemakerAldus Pagemaker',
+      ),
+    ),
+  );
 
-        $manager->persist($p1);
-        $manager->persist($p2);
-        $manager->persist($p3);
+  /**
+   * {@inheritDoc}
+   */
+  public function getOrder()
+  {
+    return 15;
+  }
 
-        $manager->flush();
+  public function load(ObjectManager $manager)
+  {
+    $repository = $manager->getRepository('\\Gedmo\\Translatable\\Entity\\Translation');
+
+    foreach ($this->posts as $postData) {
+      $post = new Post();
+      $post->setTitle($postData['title']);
+      $post->setOntop($postData['onTop']);
+      $post->setBody(trim($postData['body']));
+
+      $post->setAuthor($this->getAuthor($manager, $postData['author']));
+      $repository
+        ->translate($post, 'title', 'en', $postData['en']['title'])
+        ->translate($post, 'body', 'en', $postData['en']['body']);
+
+      $manager->persist($post);
+      $manager->flush();
     }
+  }
 
-    /**
-     * Get an Autthor
-     *
-     * @param Object $manager
-     * @param $name
-     */
-    private function getAuthor(ObjectManager $manager, $name)
-    {
-        return $manager->getRepository('WindModelBundle:Author')->findOneBy(
-            array(
-                'name' => $name
-            )
-        );
-    }
+  /**
+   * Get an Autthor
+   *
+   * @param Object $manager
+   * @param $name
+   */
+  private function getAuthor(ObjectManager $manager, $name)
+  {
+    return $manager->getRepository('WindModelBundle:Author')->findOneBy(
+      array(
+        'name' => $name
+      )
+    );
+  }
 }

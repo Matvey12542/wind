@@ -15,6 +15,27 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Wind\ModelBundle\Entity\Slider;
 
 class Sliders extends AbstractFixture implements OrderedFixtureInterface {
+
+    protected $slides = array(
+        array(
+            'title' => 'Lorem',
+            'picture' => 'wind-01.jpg',
+            'body' =>
+              'Lorem lorem',
+        ),
+        array(
+            'title' => 'Test test',
+            'picture' => 'wind-02.jpg',
+            'body' =>
+              'buuuuu TEst test tste',
+        ),
+        array(
+            'title' => 'Lorem',
+            'picture' => 'wind-03.jpg',
+            'body' =>
+              'test description',
+        ),
+    );
     /**
      * Get the order of this fixture
      *
@@ -30,41 +51,15 @@ class Sliders extends AbstractFixture implements OrderedFixtureInterface {
      */
     function load(ObjectManager $manager)
     {
-        $s1 = new Slider();
-        $s1->setTitle('Lorem');
-        $s1->setPath($s1->getAbsolutePath().'/wind-01.jpg');
-        $s1->setBody('Lorem 300M рассчитан на сильные ветра и может быть установлен, к примеру, на яхту, телекоммуникационные вышки и прочие объекты.');
+        foreach ($this->slides as $slideData) {
+            $slide = new Slider();
+            $slide->setTitle($slideData['title']);
+            $slide->setPath($slide->getAbsolutePath().'/'.$slideData['picture']);
+            $slide->setBody($slideData['body']);
 
-
-        $s2 = new Slider();
-        $s2->setTitle('Test');
-        $s2->setPath($s2->getWebPath().'/wind-02.jpg');
-
-        $s2->setBody('TEst test tste сильные ветра и может быть установлен, к примеру, на яхту, телекоммуникационные вышки и прочие объекты.');
-
-        $s3 = new Slider();
-        $s3->setTitle('Test test ');
-        $s3->setPath($s3->getWebPath().'/wind-03.jpg');
-        $s3->setBody('buuuuu TEst test tste сильные ветра и может быть установлен, к примеру, на яхту, телекоммуникационные вышки и прочие объекты.');
-
-
-        $s4 = new Slider();
-        $s4->setTitle('Test test ');
-        $s4->setPath($s4->getWebPath().'/wind-04.jpg');
-        $s4->setBody('buuuuu TEst test tste сильные ветра и может быть установлен, к примеру, на яхту, телекоммуникационные вышки и прочие объекты.');
-
-
-        $s5 = new Slider();
-        $s5->setTitle('Test test ');
-        $s5->setPath($s5->getWebPath().'/wind-05.jpg');
-        $s5->setBody('buuuuu TEst test tste сильные ветра и может быть установлен, к примеру, на яхту, телекоммуникационные вышки и прочие объекты.');
-
-        $manager->persist($s1);
-        $manager->persist($s2);
-        $manager->persist($s3);
-        $manager->persist($s4);
-        $manager->persist($s5);
-        $manager->flush();
+            $manager->persist($slide);
+            $manager->flush();
+        }
     }
 
     /**
