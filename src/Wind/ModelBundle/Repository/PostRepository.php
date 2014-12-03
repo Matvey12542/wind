@@ -10,6 +10,7 @@ namespace Wind\ModelBundle\Repository;
 
 
 use Doctrine\ORM\EntityRepository;
+use Gedmo\Tree\Entity\Repository\NestedTreeRepository;
 
 class PostRepository extends EntityRepository {
     /**

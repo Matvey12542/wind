@@ -95,4 +95,14 @@ class PostController extends Controller
         return $this->get('postManager');
     }
 
+  /**
+   * @Route("/generte")
+   * !@!Template()
+   *
+   */
+  public function generteAction()
+  {
+    return array('bu');
+  }
+
 }

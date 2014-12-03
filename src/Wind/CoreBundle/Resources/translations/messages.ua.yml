@@ -11,8 +11,9 @@ post:
 
 generator:
   on: Опублікований
+  plural: Вітрогенератори в Україні
 
-Wind.turbines : Вітрогенератори
+wind.turbines : Вітрогенератори
 telephone: Тел
 
 menu:
