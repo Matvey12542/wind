@@ -47,6 +47,7 @@ class AppKernel extends Kernel
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
 
             new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
 
         );
 
