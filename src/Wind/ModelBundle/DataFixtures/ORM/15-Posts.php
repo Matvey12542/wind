@@ -93,8 +93,8 @@ class Posts extends AbstractFixture implements OrderedFixtureInterface
 
       $post->setAuthor($this->getAuthor($manager, $postData['author']));
       $repository
-        ->translate($post, 'title', 'en', $postData['en']['title'])
-        ->translate($post, 'body', 'en', $postData['en']['body']);
+        ->translate($post, 'title', 'en_EN', $postData['en']['title'])
+        ->translate($post, 'body', 'en_EN', $postData['en']['body']);
 
       $manager->persist($post);
       $manager->flush();
