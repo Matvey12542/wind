@@ -8,12 +8,15 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * generator
  *
  * @ORM\Table()
  * @ORM\Entity
+ * @Vich\Uploadable
  */
 class Generator extends Timestampable implements Translatable
 {
@@ -40,17 +43,18 @@ class Generator extends Timestampable implements Translatable
      * @ORM\Column(name="title", type="string", length=255)
      */
     private $title;
-
     /**
-     * @Assert\File(maxSize="6000000")
+     * @ORM\Column(name="logo", type="string", length=255, nullable=true)
+     */
+    private $logo;
+    /**
+     * @Assert\File(
+     *  maxSize="6000000",
+     *  mimeTypes={"image/png", "image/jpeg", "image/pjpeg"}
+     * )
+     * @Vich\UploadableField(mapping="generator_image", fileNameProperty="logo")
      */
     private $file;
-
-    /**
-     * @ORM\Column(name="path", type="string", length=255, nullable=true)
-     */
-    private $path;
-
     /**
      * @var string
      * @Gedmo\Translatable()
@@ -130,7 +134,27 @@ class Generator extends Timestampable implements Translatable
         return $this;
     }
 
-    public function getAbsolutePath() {
+    /**
+     * Set logo
+     *
+     * @param string $logo
+     */
+    public function setLogo($logo)
+    {
+        $this->logo = $logo;
+        return $this;
+    }
+
+    /**
+     * Get logo
+     *
+     * @return string
+     */
+    public function getLogo()
+    {
+        return $this->logo;
+    }
+    /*public function getAbsolutePath() {
         return null === $this->path
             ? null
             : $this->getUploadRootDir() . '/' . $this->path;
@@ -148,23 +172,35 @@ class Generator extends Timestampable implements Translatable
 
     protected function getUploadDir(){
         return 'upload/documents';
-    }
+    }*/
 
     /**
-     * @param UploadedFile $file
+     * Set file
+     *
+     * @param string $file
      */
-    public function setFile(UploadedFile $file = null) {
+    public function setFile($file)
+    {
+        /*if (!empty($file)) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->updatedAt = new \DateTime('now');
+        }*/
         $this->file = $file;
+        return $this;
     }
 
     /**
-     * @return mixed
+     * Get file
+     *
+     * @return string
      */
-    public function getFile() {
+    public function getFile()
+    {
         return $this->file;
     }
 
-    public function upload()
+    /*public function upload()
     {
         // the file property can be empty if the field is not required
         if (null === $this->getFile()) {
@@ -186,7 +222,7 @@ class Generator extends Timestampable implements Translatable
 
         // clean up the file property as you won't need it anymore
         $this->file = null;
-    }
+    }*/
 
 
     /**
@@ -373,15 +409,15 @@ class Generator extends Timestampable implements Translatable
         return $this;
     }
 
-    /**
-     * Get path
-     *
-     * @return string 
-     */
-    public function getPath()
-    {
-        return $this->path;
-    }
+//    /**
+//     * Get path
+//     *
+//     * @return string
+//     */
+//    public function getPath()
+//    {
+//        return $this->path;
+//    }
 
     /**
      * Set slug
@@ -406,7 +442,7 @@ class Generator extends Timestampable implements Translatable
         return $this->slug;
     }
 
-    public function setTranslatableLocale($locale) {
-        $this->locale = $locale;
-    }
+//    public function setTranslatableLocale($locale) {
+//        $this->locale = $locale;
+//    }
 }

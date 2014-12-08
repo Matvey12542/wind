@@ -49,7 +49,7 @@ class GeneratorAdmin extends Admin {
     {
         $showMapper
             ->add('title')
-            ->add('file', 'file')
+            ->add('file')
             ->add('body')
             ->add('performance')
             ->add('initialSpeed')
@@ -69,14 +69,20 @@ class GeneratorAdmin extends Admin {
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
+            ->add('id')
             ->addIdentifier('title')
-            ->add('file', 'file')
-            ->add('body')
-            ->add('performance')
-            ->add('initialSpeed')
-            ->add('ratedSpeed')
-            ->add('weight')
-            ->add('price')
+//            ->add('link', 'string', array('template' => 'KPhoenSingleUploadableBundle:Image:list_link.html.twig'))
+//            ->add('file')
+              ->add('file', 'file', array(
+                      'data_class' => 'Symfony\Component\HttpFoundation\File\File',
+                      'attr' => array('class' => 'sonata-medium-file')
+                  ))
+//            ->add('body')
+//            ->add('performance')
+//            ->add('initialSpeed')
+//            ->add('ratedSpeed')
+//            ->add('weight')
+//            ->add('price')
             ->add('author')
 //            ->add('image')
 //            ->add('tags')
@@ -98,7 +104,7 @@ class GeneratorAdmin extends Admin {
     {
         $datagridMapper
             ->add('title')
-//            ->add('file', 'file')
+//            ->add('logo')
             ->add('body')
             ->add('performance')
             ->add('initialSpeed')

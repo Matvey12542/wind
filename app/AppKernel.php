@@ -43,12 +43,11 @@ class AppKernel extends Kernel
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new Wind\AdminBundle\AdminBundle(),
             new Avalanche\Bundle\ImagineBundle\AvalancheImagineBundle(),
-
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
-
             new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
-
+            new FOS\UserBundle\FOSUserBundle(),
+            new Vich\UploaderBundle\VichUploaderBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

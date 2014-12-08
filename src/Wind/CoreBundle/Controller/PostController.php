@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Wind\ModelBundle\Entity\Comment;
 use Wind\ModelBundle\Form\CommentType;
@@ -19,6 +20,9 @@ use Wind\CoreBundle\MyMailer;
  */
 class PostController extends Controller
 {
+    function redirectAction() {
+        return new RedirectResponse($this->generateUrl("wind_core_generator_index"));
+    }
     /**
      * @Route("/post")
      * @Template()
@@ -26,7 +30,7 @@ class PostController extends Controller
     public function indexAction()
     {
         $posts = $this->getPostManager()->findAll();
-        $latestPosts = $this->getPostManager()->findLatest(5);
+        $latestPosts = $this->getPostManager()->findLatest(5, 'ua');
 
         return array(
             'posts' => $posts,

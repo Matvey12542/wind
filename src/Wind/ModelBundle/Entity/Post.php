@@ -14,7 +14,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="Wind\ModelBundle\Repository\PostRepository")
- * @Gedmo\TranslationEntity(class="Wind\ModelBundle\Entity\PostTranslation")
+ * 1@1Gedmo\TranslationEntity(class="Wind\ModelBundle\Entity\PostTranslation")
  */
 class Post extends Timestampable implements Translatable
 {
@@ -72,18 +72,18 @@ class Post extends Timestampable implements Translatable
   private $comments;
 
   /**
-   * @Gedmo\Locale()
+   * 1@1Gedmo\Locale()
    */
 //    private $locale;
 
   /**
-   * @ORM\OneToMany(
-   *   targetEntity="PostTranslation",
-   *   mappedBy="object",
-   *   cascade={"persist", "remove"}
-   * )
+   * 1@ORM\OneToMany(
+   *   1targetEntity="PostTranslation",
+   *   1mappedBy="object",
+   *   1cascade={"persist", "remove"}
+   * 1)
    */
-  private $translations;
+//  private $translations;
 
   /**
    * Constructor
@@ -91,7 +91,7 @@ class Post extends Timestampable implements Translatable
   public function __construct()
   {
     $this->comments = new ArrayCollection();
-    $this->translations = new ArrayCollection();
+//    $this->translations = new ArrayCollection();
 //      $this->ontop = false;
   }
 
@@ -100,13 +100,13 @@ class Post extends Timestampable implements Translatable
     return $this->translations;
   }
 
-  public function addTranslation(PostTranslation $t)
+  /*public function addTranslation(PostTranslation $t)
   {
     if (!$this->translations->contains($t)) {
       $this->translations[] = $t;
       $t->setObject($this);
     }
-  }
+  }*/
 
   /**
    * Get id

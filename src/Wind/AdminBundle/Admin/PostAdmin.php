@@ -31,6 +31,7 @@ class PostAdmin extends Admin {
 
             ->add('title')
             ->add('author')
+            ->add('body')
 //            ->add('blog', 'textarea', array('attr'=>array('class'=>'ckeditor')))
 //            ->add('file', 'file')
 //            ->add('tags')

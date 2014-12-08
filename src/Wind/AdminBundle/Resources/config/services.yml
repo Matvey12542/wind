@@ -2,11 +2,17 @@ services:
     sonata.admin.post:
           class: Wind\AdminBundle\Admin\PostAdmin
           tags:
-                - { name: sonata.admin, manager_type: orm, group: posts, label: posts }
+                - { name: sonata.admin, manager_type: orm, group: entity, label: posts }
           arguments: [null, Wind\ModelBundle\Entity\Post, SonataAdminBundle:CRUD]
 
     sonata.admin.generator:
           class: Wind\AdminBundle\Admin\GeneratorAdmin
           tags:
-                - { name: sonata.admin, manager_type: orm, group: posts, label: generator }
+                - { name: sonata.admin, manager_type: orm, group: entity, label: generator }
           arguments: [null, Wind\ModelBundle\Entity\Generator, SonataAdminBundle:CRUD]
+
+    sonata.admin.slider:
+              class: Wind\AdminBundle\Admin\SliderAdmin
+              tags:
+                    - { name: sonata.admin, manager_type: orm, group: slider, label: slider }
+              arguments: [null, Wind\ModelBundle\Entity\Slider, SonataAdminBundle:CRUD]
