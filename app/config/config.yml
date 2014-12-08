@@ -122,3 +122,12 @@ fos_user:
   db_driver: orm
   firewall_name: main
   user_class: Wind\ModelBundle\Entity\User
+vich_uploader:
+    db_driver: orm
+    mappings:
+            generator_image:
+                uri_prefix:         /upload/documents
+                upload_destination: %kernel.root_dir%/../web/upload/documents
+                delete_on_remove: true
+                delete_on_update: true
+                inject_on_load: true
